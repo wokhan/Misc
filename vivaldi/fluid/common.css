@@ -39,20 +39,29 @@
   display: block;
 }
 
-
-
 /* Collapsed tabs */
-#browser {  
-  .mainbar, #header, #footer, #panels-container, .bookmark-bar {
+#browser {
+
+  .mainbar,
+  #header,
+  #footer,
+  #panels-container,
+  .bookmark-bar {
     border: none !important;
   }
 
-  .mainbar, #header, #footer, .bookmark-bar {
+  .mainbar,
+  #header,
+  #footer,
+  .bookmark-bar {
     background-color: var(--colorBgAlphaBlur) !important;
   }
 
-  #main, #header, #footer, .panel-group {
-    backdrop-filter: var(--backgroundBlur); 
+  #main,
+  #header,
+  #footer,
+  .panel-group {
+    backdrop-filter: var(--backgroundBlur);
   }
 
   .color-behind-tabs-on .bookmark-bar button,
@@ -88,16 +97,25 @@
       transition: padding 0.25s, background-color 0.25s, width 0.5s;
     }
 
-    #tabs-tabbar-container #tabs-container {
-      background-color: unset;
-      backdrop-filter: unset;
-      transition: background-color 0.25s;
-    }
-
     #tabs-tabbar-container {
       max-width: var(--tab-bar-width);
       overflow: hidden;
       transition: max-width 0.25s;
+
+      #tabs-container:is(.left, .right) {
+        background-color: unset;
+        backdrop-filter: unset;
+        transition: background-color 0.25s;
+
+        .toolbar.toolbar-tabbar-after {
+          display: none;
+        }
+
+        .resize {
+          min-height: unset;
+        }
+      }
+
     }
 
     button>span.button-icon {
@@ -105,11 +123,11 @@
       margin-right: 7px;
     }
   }
+
 }
 
 #browser:not(.is-settingspage).color-accent-from-page.color-behind-tabs-on.transparent-tabbar.tabs-top #header:before,
-#browser:not(.is-settingspage).color-accent-from-page.color-behind-tabs-on.transparent-tabbar.tabs-left .tabbar-wrapper:before,
-#browser:not(.is-settingspage).color-accent-from-page.color-behind-tabs-on.transparent-tabbar.tabs-right .tabbar-wrapper:before,
+#browser:not(.is-settingspage).color-accent-from-page.color-behind-tabs-on.transparent-tabbar:is(.tabs-left, .tabs-right) .tabbar-wrapper:before,
 #browser:not(.is-settingspage).color-accent-from-page.color-behind-tabs-on.transparent-tabbar.tabs-bottom>footer:before {
   display: none;
 }
@@ -133,9 +151,17 @@
     margin-right: 4px;
   }
 
-  #tabs-container {
+  #tabs-container:is(.left, .right) {
     background-color: var(--colorAccentBgAlpha);
     backdrop-filter: var(--backgroundBlur);
+
+    .resize {
+      min-height: calc(100% - 70px);
+    }
+
+    .toolbar.toolbar-tabbar-after {
+      display: flex;
+    }
   }
 
   #tabs-tabbar-container {
@@ -157,8 +183,7 @@ button[name='WorkspaceButton'] .button-icon {
   padding-top: 0;
 }
 
-#tabs-container.left .tab-strip,
-#tabs-container.right .tab-strip {
+#tabs-container:is(.left, .right) .tab-strip {
   margin-top: 10px;
   margin-bottom: -10px;
 }
