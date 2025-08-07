@@ -79,10 +79,11 @@
       background: var(--colorBgAlphaBlur);
     }
 
-    .tab .favicon {
+    &:not(.alt-tabs) #tabs-container .favicon,
+    &:not(.alt-tabs) #tabs-container .tab.pinned:not(.active) .favicon .tab .favicon {
       margin-left: 0px;
-      margin-right: 0px;
-      transition: margin-right 0.25s;
+      margin-right: 20px;
+      transition: margin-right 0.25s, transform 100ms 50ms ease-in;
     }
 
     .tab-wrapper {
