@@ -28,7 +28,7 @@
     backdrop-filter: var(--backgroundBlur);
   }
 
-  &:not(.is-settingspage) {
+  &:not(.is-fullscreen) {
     button[name='WorkspaceButton'] {
       margin: 10px;
 
@@ -155,12 +155,36 @@
         }
       }
     }
+
+    .inner:has(#tabs-tabbar-container.right) {
+      #webview-container {
+        margin-left: 0;
+        margin-right: var(--tab-bar-width);
+      }
+
+      .tabbar-wrapper {
+        top: 0;
+        right: 0;
+        background-color: var(--colorBgAlphaBlur);
+
+        #tabs-tabbar-container {
+          padding: 0;
+        }
+      }
+
+      #panels-container {
+        right: var(--tab-bar-width);
+        z-index: 0;
+      }
+    }
+
   }
 
 
   /* Hovered tabs */
   &:has(button[name='WorkspaceButton'].button-pressed) #main .tabbar-wrapper,
   &:has(button[name='SyncedTabs'].button-pressed) #main .tabbar-wrapper,
+  &:has(div.button-popup) #main .tabbar-wrapper,
   & .tabbar-wrapper:hover {
 
     #tabs-tabbar-container:is(.left, .right) {
