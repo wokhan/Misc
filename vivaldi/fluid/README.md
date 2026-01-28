@@ -4,8 +4,6 @@ A simple CSS customization to allow Vivaldi to be more "fluid" and to my own tas
 
 Tab bar is autohiding with a small animation (tabs themselves also animate), and the whole window displays the picture theme with a light blur and transparency effect as per the current theme options (tweak them to make it look even nicer).
 
-> :warning: Please note that it supports only a **vertical tabbar on the left**, and probably has minor issues as of now.
-
 ## Screenshots
 
 With the Beach theme
