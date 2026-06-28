@@ -71,7 +71,8 @@
       position: absolute;
       overflow: hidden;
       z-index: 1;
-      background: unset;
+      /*background: unset;*/
+      background-color: var(--colorTabBar);
 
       .tabbar-wrapper {
         background: var(--colorBgAlphaBlur);
@@ -195,7 +196,7 @@
       }
 
       #tabs-container {
-        background-color: var(--colorAccentBgAlpha);
+        background-color: var(--colorBgLight);
         backdrop-filter: var(--backgroundBlur);
 
         .toolbar.toolbar-tabbar-after {
